@@ -31,12 +31,20 @@ class Example(QWidget):
         self.update()
 
     def draw_flag(self, qp):
-        qp.setBrush(QColor(255, 255, 0))
         r = random.choice(range(1, 50))
+        qp.setBrush(
+        QColor(random.choice(range(0, 255)), random.choice(range(0, 255)),
+               random.choice(range(0, 255))))
         qp.drawEllipse(0, 0, r, r)
         r = random.choice(range(1, 50))
+        qp.setBrush(
+            QColor(random.choice(range(0, 255)), random.choice(range(0, 255)),
+                   random.choice(range(0, 255))))
         qp.drawEllipse(60, 0, r, r)
         r = random.choice(range(1, 50))
+        qp.setBrush(
+            QColor(random.choice(range(0, 255)), random.choice(range(0, 255)),
+                   random.choice(range(0, 255))))
         qp.drawEllipse(120, 0, r, r)
 
 

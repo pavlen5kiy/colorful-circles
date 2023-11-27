@@ -11,10 +11,10 @@ class Example(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setGeometry(300, 300, 200, 200)
+        self.setGeometry(300, 300, 400, 300)
         self.setWindowTitle('Рисование')
         self.btn = QPushButton('Рисовать', self)
-        self.btn.move(70, 150)
+        self.btn.move(160, 250)
         self.do_paint = False
         self.btn.clicked.connect(self.paint)
 
@@ -30,22 +30,15 @@ class Example(QWidget):
         self.do_paint = True
         self.update()
 
-    def draw_flag(self, qp):
-        r = random.choice(range(1, 50))
-        qp.setBrush(
-        QColor(random.choice(range(0, 255)), random.choice(range(0, 255)),
-               random.choice(range(0, 255))))
-        qp.drawEllipse(0, 0, r, r)
-        r = random.choice(range(1, 50))
-        qp.setBrush(
+    def draw_circles(self, qp):
+        for _ in range(random.choice(range(50, 200))):
+            r = random.choice(range(1, 50))
+            x = random.choice(range(0, 400))
+            y = random.choice(range(0, 300))
+            qp.setBrush(
             QColor(random.choice(range(0, 255)), random.choice(range(0, 255)),
                    random.choice(range(0, 255))))
-        qp.drawEllipse(60, 0, r, r)
-        r = random.choice(range(1, 50))
-        qp.setBrush(
-            QColor(random.choice(range(0, 255)), random.choice(range(0, 255)),
-                   random.choice(range(0, 255))))
-        qp.drawEllipse(120, 0, r, r)
+            qp.drawEllipse(x, y, r, r)
 
 
 if __name__ == '__main__':
